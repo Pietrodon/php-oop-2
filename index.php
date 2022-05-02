@@ -11,17 +11,21 @@ class PetShop{
 class User{
     public $name;
     public $surname;
-    public $discount=0;
+}
 
+class Discount{
     public function registeredCheck($registered){
         if ($registered == true) {
-            $this->discount = 20;
+            echo 'UTENTE REGISTRATO,Hai diritto ad uno sconto del 20%';
         } else {
-            $this->discount = 0;
+            echo 'UTENTE NON REGISTRATO, non hai diritto a nessuno sconto per i membri';
         }
     }
 
+
 }
+
+
 
 
 $prodotto_1 = new PetShop();
@@ -44,7 +48,10 @@ $prodotto_3->description='Antipulci per i vostri cuccioli';
 $user_1 = new User();
 $user_1->name='Pietro';
 $user_1->surname='Donvito';
-$user_1->registeredCheck(true)
+
+
+$discount_1 = new Discount();
+$discount_1->registeredCheck(true);
 
 
 
@@ -65,8 +72,9 @@ $user_1->registeredCheck(true)
 <body>
     <h1 class="title">IL MIO NEGOZIO DI ANIMALI</h1>
     <div class="container">
-    <p>NOME: <?php echo $prodotto_1->name ?> </p>
-    <p>COGNOME: <?php echo $prodotto_1->name ?> </p>
+    <p>NOME: <?php echo $user_1->name ?> </p>
+    <p>COGNOME: <?php echo $user_1->surname ?> </p>
+    <p><?php echo $discount_1->registeredCheck(true)?></p>
 
 
     </div>
@@ -76,19 +84,19 @@ $user_1->registeredCheck(true)
         <p>PRODOTTO: <?php echo $prodotto_1->name ?> </p>
         <p>PREZZO <?php echo $prodotto_1->price ?>  €  </p>
         <p>DESCRIZIONE: <?php echo $prodotto_1->description ?></p>
-        <p>SCONTO: <?php echo $prodotto_1->discount ?> %</p>
+        
     </div>
     <div class="container">
         <p>PRODOTTO: <?php echo $prodotto_2->name ?> </p>
         <p>PREZZO <?php echo $prodotto_2->price ?>  €  </p>
         <p>DESCRIZIONE: <?php echo $prodotto_2->description ?></p>
-        <p>SCONTO: <?php echo $prodotto_2->discount ?> %</p>
+        
     </div>
     <div class="container">
         <p>PRODOTTO: <?php echo $prodotto_3->name ?> </p>
         <p>PREZZO <?php echo $prodotto_3->price ?>  €  </p>
         <p>DESCRIZIONE: <?php echo $prodotto_3->description ?></p>
-        <p>SCONTO: <?php echo $prodotto_3->discount ?> %</p>
+        
     </div>
 </body>
 </html>
