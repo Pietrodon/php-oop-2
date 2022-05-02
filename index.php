@@ -11,6 +11,13 @@ class PetShop{
 class User{
     public $name;
     public $surname;
+    public function creditCardCheck($expiration_date){
+        if ($expiration_date>=2022) {
+            echo'la carta scelta è valida';
+        }else{
+            echo 'la carta selezionata è scaduta scegliere un altra carta';
+        }
+    }
 }
 
 class Discount{
@@ -48,6 +55,7 @@ $prodotto_3->description='Antipulci per i vostri cuccioli';
 $user_1 = new User();
 $user_1->name='Pietro';
 $user_1->surname='Donvito';
+$user_1->creditCardCheck(2025);
 
 
 $discount_1 = new Discount();
@@ -75,6 +83,7 @@ $discount_1->registeredCheck(true);
     <p>NOME: <?php echo $user_1->name ?> </p>
     <p>COGNOME: <?php echo $user_1->surname ?> </p>
     <p><?php echo $discount_1->registeredCheck(true)?></p>
+    <p>CARTA: <?php echo $user_1->creditCardCheck(2025) ?> </p>
 
 
     </div>
